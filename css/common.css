@@ -1,0 +1,1066 @@
+@charset "utf-8";      /*한글 깨짐 방지*/
+/* 공통 스타일을 모아둠 */
+/* 헤더, 풋터*/
+/* 텍스트, 색상, 버튼, 아이콘 */
+/* 여러페이지에 반복적으로 쓰이는 것들을 모아둠 */
+
+/* 그외 효과, 컨텐츠(카드, 표, 폼, 팝업창, 로딩, ...)의 스타일 등 */
+/* 피그마-컴포넌트와 유사 */
+/* 유지보수관리 용이 */
+
+:root
+{
+    --color-point: #FFC800;
+    --pc-width: 1280px;
+
+}
+
+/* 헤더---------------------------------------------------------------------------------------------------------- */
+header
+{
+    position: fixed;
+    width: 100%;
+    padding: 80px;
+    z-index: 2;
+}
+header > div
+{
+    max-width: var(--pc-width);     /*반응형*/
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    color: white;
+    text-transform: uppercase;
+}
+header > div > h1{}
+header > div > h1 > a{}
+
+header > div > nav{}
+header > div > nav > ul
+{
+    display: flex;
+}
+header > div > nav > ul > li
+{
+    position: relative;
+}
+header > div > nav > ul > li > a
+{
+    padding: 0 15px;
+    
+
+}
+
+
+header > div > nav > ul > li > a{}
+header > div > nav > ul > li > div
+{
+    position: absolute;
+    left:0; 
+    top: 100%;
+    width: 100%;
+    text-align: center;
+    background-color: var(--color-point);
+    border-radius: 10px;
+    padding: 10px;
+}
+header > div > nav > ul > li > div > a
+{
+    display: block;
+}
+
+
+/* active */
+header > div > nav > ul > li:hover > a
+{
+    color: var(--color-point);   
+} 
+
+header > div > nav > ul > li > div
+{
+    opacity: 0;
+    transition: 0.5s;
+}
+header > div > nav > ul > li:hover > div
+{
+    opacity: 1;
+}
+
+
+
+/* 버튼(tellmemore)---------------------------------------------------------------------------------------------------------- */
+.btn
+{
+    display: inline-block;
+    padding: 22px 50px;
+    background-color: var(--color-point);
+    border-radius: 10px;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    margin-top: 10px;
+
+}
+
+/* active */
+.btn
+{
+    position: relative;
+    overflow: hidden;
+    pointer-events: fill;
+    transition: 0.5s;
+}
+
+/* .btn::after
+{
+     content: '';
+     position: absolute;
+     left: -100%;
+     top:0;
+     width: 100%; height: 100%;
+     background-color: aquamarine;
+     transition: 0.5s;
+
+} */
+
+.btn:hover
+{   
+    left:0;
+    background-color: blueviolet;
+}
+.btn::before{}  /*버튼 안 아이콘*/
+
+/* 타이틀----------------------------------------------------------------------------------------- */
+.title
+{
+    margin-bottom: 50px;
+    text-align: center;
+}
+.title > h2
+{
+    font-size: 2.5rem;
+    text-transform: uppercase;
+
+}
+.title > p
+{
+    margin-top: 10px;
+}
+/* service items 아이템----------------------------------------------------------------------------------------- */
+.service-items{}
+.service-items > figure
+{
+    width: 30%;
+    text-align: center;
+    padding: 20px 0;
+}
+.service-items > figure > p
+{
+    width: 130px; height: 130px;
+    border-radius: 50%; 
+    background-color: var(--color-point);
+    margin: 0 auto;
+    line-height: 130px;    
+}
+.service-items > figure > p > span
+{
+    width: 130px; height: 130px;
+    border-radius: 50%; 
+    background-color: var(--color-point);
+    margin: 0 auto;
+    font-size: 2rem;
+    color: #333;
+    line-height: 130px;    
+}
+.service-items > figure > p::after{}
+
+.service-items > figure > figcaption{}
+.service-items > figure > figcaption > b
+{
+    display: block;
+    font-size: 2rem;
+    color: #212529;
+    margin: 24px  0 8px;
+    text-transform: uppercase;
+}
+.service-items > figure > figcaption > p{}
+
+
+/* 텍스트 생략 -------------------------------------------------------------------------------------------------*/
+.t-skip1
+{
+    /*1줄 이상 제목 ...으로 가리기*/
+    white-space: nowrap;    /*긴 컨텐츠 강제로 한줄 만들기*/
+    overflow: hidden;       /*영역밖은 숨기기*/
+    text-overflow: ellipsis;    /*...처리*/
+}
+.t-skip2
+{   
+     /*3줄 이상 컨텐츠는 ...으로 가리기*/
+     display: -webkit-box;
+     -webkit-line-clamp: 3;
+     overflow: hidden;
+ 
+     /*세로정렬(flex예전에쓰던거)*/
+     -webkit-box-orient: vertical;
+}
+/* 배경색-------------------------------------------------------------------------------------------------------------------- */
+.bg-grey
+{
+    background-color: #f2f2f2;
+}
+.bg-dark
+{
+    background-color: #333333;
+    color: white;
+}
+.bg-dark h2
+{
+    color: inherit;
+}
+/* portfolio items 아이템----------------------------------------------------------------------------------------- */
+.portfolio-items
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px 0;
+
+}
+.portfolio-items > figure
+{
+    width: 32%;
+}
+
+.portfolio-items > figure > p{}
+.portfolio-items > figure > p > span > img{
+    width: 100%;
+}
+
+.portfolio-items > figure > figcaption
+{
+    text-align: center;
+    padding: 24px 0;
+    width: 100%;
+}
+.portfolio-items > figure > figcaption > b
+{
+    font-size: 1.5rem;
+    color: #333;
+    text-transform: uppercase;
+}
+.portfolio-items > figure > figcaption > p{}
+
+
+/* active */
+.portfolio-items{
+    perspective: 600px;
+}
+
+.portfolio-items > figure > p{
+    position: relative;
+    width: 414px;
+    height: 270px;
+
+    transform-style: preserve-3d; /*z축 사용:부모한테씀(flex처럼)*/
+
+    transition: 1s;
+   
+}
+.portfolio-items > figure > p > img{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+}
+.portfolio-items > figure > p > img:nth-child(1){
+}
+.portfolio-items > figure > p > img:nth-child(2){
+    transform: translateZ(-1px) rotateY(180deg);    /*2번째 이미지 뒤집기*/
+}
+
+
+.portfolio-items > figure:hover > p{
+    animation: ani-3d-card 3s infinite;
+}
+
+@keyframes ani-3d-card{
+    0%{}
+    100%{
+        transform: perspective(600px) rotateY(360deg);
+    }
+}
+
+/* contact us items 아이템----------------------------------------------------------------------------------------- */
+
+/* 정렬----------------------------------------------------------------------------------------------------------------- */
+.align-left{text-align: left;}
+.align-center{text-align: center;}
+.align-right{text-align: right;}
+
+/* 여백(마진)----------------------------------------------------------------------------------------------------------------- */
+.margin-top10{margin-top: 10px;}
+.margin-top20{margin-top: 20px;}
+.margin-top50{margin-top: 50px;}
+
+/* footer--------------------------------------------------------------------------------------------------------- */
+footer
+{   
+    padding: 60px 0;
+    
+}
+footer > div
+{
+    max-width: var(--pc-width);    /*헤더와 동일, 반응형*/
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+footer > div > address{}
+footer > div > p{}
+footer > div > p > img
+{
+    width: 100%;
+}
+footer > div > p:nth-of-type(2) > a
+{
+    padding: 0 10px;
+    text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+===============================================================================
+===============================mobile(767px)===================================
+===============================mobile(767px)===================================
+===============================작성자 {name}====================================
+===============================================================================
+*/
+
+@media (max-width: 767px){
+
+:root
+{
+    --color-point: #FFC800;
+    --pc-width: 1280px;
+
+}
+
+/* 헤더---------------------------------------------------------------------------------------------------------- */
+header
+{
+    position: fixed;
+    width: 100%;
+    padding: 20px;
+    z-index: 2;
+}
+header > div
+{
+    max-width: var(--pc-width);     /*반응형*/
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    color: white;
+    text-transform: uppercase;
+}
+header > div > h1{}
+header > div > h1 > a{}
+
+header > div > nav{}
+header > div > nav > ul
+{
+    display: flex;
+}
+header > div > nav > ul > li
+{
+    position: relative;
+}
+header > div > nav > ul > li > a
+{
+    padding: 0 15px;
+    
+
+}
+
+
+header > div > nav > ul > li > a{}
+header > div > nav > ul > li > div
+{
+    position: absolute;
+    left:0; 
+    top: 100%;
+    width: 100%;
+    text-align: center;
+    background-color: var(--color-point);
+    border-radius: 10px;
+    padding: 10px;
+}
+header > div > nav > ul > li > div > a
+{
+    display: block;
+}
+
+header .trigger{
+    display: block;
+    width: 30px;
+    height: 26px;
+    position: relative;
+    display: none;
+
+    span{
+        width: 100%;
+        border-bottom: 2px solid black;
+        position: absolute;
+        left: 0;
+        transition: .5s;
+
+        &:nth-of-type(1){top: 0;}
+        &:nth-of-type(2){top: 50%;}
+        &:nth-of-type(3){top: 100%;}
+    }
+
+    
+}
+        
+/*active*/    
+header:hover .trigger{
+    div span{
+        top: 50%;
+        &:nth-of-type(1){transform: rotate(45deg);}
+        &:nth-of-type(2){transform: translateX(-100%); opacity: 0;}
+        &:nth-of-type(3){transform: rotate(-45deg);}
+    }
+    nav{
+        display: block;
+    }
+
+}
+
+
+/* active */
+header > div > nav > ul > li:hover > a
+{
+    color: var(--color-point);   
+} 
+
+header > div > nav > ul > li > div
+{
+    opacity: 0;
+    transition: 0.5s;
+}
+header > div > nav > ul > li:hover > div
+{
+    opacity: 1;
+}
+
+
+
+/* 버튼(tellmemore)---------------------------------------------------------------------------------------------------------- */
+.btn
+{
+    padding: 16px 50px;
+    font-size: 1rem;
+}
+
+/* active */
+.btn
+{
+    position: relative;
+    overflow: hidden;
+    pointer-events: fill;
+    transition: 0.5s;
+}
+
+/* .btn::after
+{
+     content: '';
+     position: absolute;
+     left: -100%;
+     top:0;
+     width: 100%; height: 100%;
+     background-color: aquamarine;
+     transition: 0.5s;
+
+} */
+
+.btn:hover
+{   
+    left:0;
+    background-color: blueviolet;
+}
+.btn::before{}  /*버튼 안 아이콘*/
+
+/* 타이틀----------------------------------------------------------------------------------------- */
+.title
+{
+    margin-bottom: 50px;
+    text-align: center;
+}
+.title > h2
+{
+    font-size: 2.5rem;
+    text-transform: uppercase;
+
+}
+.title > p
+{
+    margin-top: 10px;
+}
+/* service items 아이템----------------------------------------------------------------------------------------- */
+.service-items{}
+.service-items > figure
+{   
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+}
+.service-items > figure > p
+{
+    /* width: 130px; height: 130px; */
+    border-radius: 50%; 
+    background-color: var(--color-point);
+    margin: 0 auto;
+    line-height: 130px;    
+}
+.service-items > figure > p > span
+{
+    width: 130px; height: 130px;
+    border-radius: 50%; 
+    background-color: var(--color-point);
+    margin: 0 auto;
+    font-size: 2rem;
+    color: #333;
+    line-height: 130px;    
+}
+.service-items > figure > p::after{}
+
+.service-items > figure > figcaption{
+    width: 100%;
+}
+.service-items > figure > figcaption > b
+{
+    width: 100%;
+
+    display: block;
+    font-size: 2rem;
+    color: #212529;
+    margin: 24px 0 8px;
+    text-transform: uppercase;
+}
+.service-items > figure > figcaption > p{}
+
+
+/* 텍스트 생략 -------------------------------------------------------------------------------------------------*/
+.t-skip1
+{
+    /*1줄 이상 제목 ...으로 가리기*/
+    white-space: nowrap;    /*긴 컨텐츠 강제로 한줄 만들기*/
+    overflow: hidden;       /*영역밖은 숨기기*/
+    text-overflow: ellipsis;    /*...처리*/
+}
+.t-skip2
+{   
+     /*3줄 이상 컨텐츠는 ...으로 가리기*/
+     display: -webkit-box;
+     -webkit-line-clamp: 3;
+     overflow: hidden;
+ 
+     /*세로정렬(flex예전에쓰던거)*/
+     -webkit-box-orient: vertical;
+}
+
+/* 배경색-------------------------------------------------------------------------------------------------------------------- */
+.bg-grey
+{
+    background-color: #f2f2f2;
+}
+.bg-dark
+{
+    background-color: #333333;
+    color: white;
+}
+.bg-dark h2
+{
+    color: inherit;
+}
+
+/* portfolio items 아이템----------------------------------------------------------------------------------------- */
+.portfolio-items
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px 0;
+
+}
+.portfolio-items > figure
+{
+    width: 32%;
+}
+
+.portfolio-items > figure > p{}
+.portfolio-items > figure > p > span > img{
+    width: 100%;
+}
+
+.portfolio-items > figure > figcaption
+{
+    text-align: center;
+    padding: 24px 0;
+    width: 100%;
+}
+.portfolio-items > figure > figcaption > b
+{
+    font-size: 1.5rem;
+    color: #333;
+    text-transform: uppercase;
+}
+.portfolio-items > figure > figcaption > p{}
+
+
+/* active */
+.portfolio-items{
+    perspective: 600px;
+}
+
+.portfolio-items > figure > p{
+    position: relative;
+    width: 414px;
+    height: 270px;
+
+    transform-style: preserve-3d; /*z축 사용:부모한테씀(flex처럼)*/
+
+    transition: 1s;
+   
+}
+.portfolio-items > figure > p > img{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+}
+.portfolio-items > figure > p > img:nth-child(1){}
+.portfolio-items > figure > p > img:nth-child(2){
+    transform: translateZ(-1px) rotateY(180deg);    /*2번째 이미지 뒤집기*/
+}
+
+.portfolio-items > figure:hover > p{
+    animation: ani-3d-card 3s infinite;
+}
+
+@keyframes ani-3d-card{
+    0%{}
+    100%{
+        transform: perspective(600px) rotateY(360deg);
+    }
+}
+
+/* contact us items 아이템----------------------------------------------------------------------------------------- */
+
+/* 정렬----------------------------------------------------------------------------------------------------------------- */
+.align-left{text-align: left;}
+.align-center{text-align: center;}
+.align-right{text-align: right;}
+
+/* 여백(마진)----------------------------------------------------------------------------------------------------------------- */
+.margin-top10{margin-top: 10px;}
+.margin-top20{margin-top: 20px;}
+.margin-top50{margin-top: 50px;}
+
+/* footer--------------------------------------------------------------------------------------------------------- */
+footer
+{   
+    padding: 24px 0;
+    
+}
+footer > div
+{
+    max-width: var(--pc-width);    /*헤더와 동일, 반응형*/
+    /* margin: 0 auto; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+footer > div > address{}
+footer > div > p{}
+footer > div > p > img
+{
+    width: 100%;
+}
+footer > div > p:nth-of-child(1) { order: 3; }
+footer > div > p:nth-of-child(2) { order: 2; }
+footer > div > p:nth-of-child(3) { order: 1; }
+
+footer > div > p:nth-of-type(2) > a
+{
+    padding: 0 10px;
+    text-decoration: underline;
+}
+
+
+
+}
+
+
+
+/*
+===============================================================================
+===============================tablet(768px)===================================
+===============================tablet(768px)===================================
+===============================작성자 {name}====================================
+===============================================================================
+*/
+
+@media (min-width: 768px){
+    :root
+{
+    --color-point: #FFC800;
+    --pc-width: 1280px;
+
+}
+
+/* 헤더---------------------------------------------------------------------------------------------------------- */
+header
+{
+    position: fixed;
+    width: 100%;
+    padding: 20px;
+    z-index: 2;
+}
+header > div
+{
+    max-width: var(--pc-width);     /*반응형*/
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    color: white;
+    text-transform: uppercase;
+}
+header > div > h1{}
+header > div > h1 > a{}
+
+header > div > nav{}
+header > div > nav > ul
+{
+    display: flex;
+}
+header > div > nav > ul > li
+{
+    position: relative;
+}
+header > div > nav > ul > li > a
+{
+    padding: 0 15px;
+    
+
+}
+
+
+header > div > nav > ul > li > a{}
+header > div > nav > ul > li > div
+{
+    position: absolute;
+    left:0; 
+    top: 100%;
+    width: 100%;
+    text-align: center;
+    background-color: var(--color-point);
+    border-radius: 10px;
+    padding: 10px;
+}
+header > div > nav > ul > li > div > a
+{
+    display: block;
+}
+
+
+/* active */
+header > div > nav > ul > li:hover > a
+{
+    color: var(--color-point);   
+} 
+
+header > div > nav > ul > li > div
+{
+    opacity: 0;
+    transition: 0.5s;
+}
+header > div > nav > ul > li:hover > div
+{
+    opacity: 1;
+}
+
+
+
+/* 버튼(tellmemore)---------------------------------------------------------------------------------------------------------- */
+.btn
+{
+    display: inline-block;
+    padding: 22px 50px;
+    background-color: var(--color-point);
+    border-radius: 10px;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    margin-top: 10px;
+
+}
+
+/* active */
+.btn
+{
+    position: relative;
+    overflow: hidden;
+    pointer-events: fill;
+    transition: 0.5s;
+}
+
+/* .btn::after
+{
+     content: '';
+     position: absolute;
+     left: -100%;
+     top:0;
+     width: 100%; height: 100%;
+     background-color: aquamarine;
+     transition: 0.5s;
+
+} */
+
+.btn:hover
+{   
+    left:0;
+    background-color: blueviolet;
+}
+.btn::before{}  /*버튼 안 아이콘*/
+
+/* 타이틀----------------------------------------------------------------------------------------- */
+.title
+{
+    margin-bottom: 50px;
+    text-align: center;
+}
+.title > h2
+{
+    font-size: 2.5rem;
+    text-transform: uppercase;
+
+}
+.title > p
+{
+    margin-top: 10px;
+}
+/* service items 아이템----------------------------------------------------------------------------------------- */
+.service-items{}
+.service-items > figure
+{
+    width: 30%;
+    text-align: center;
+    padding: 20px 0;
+}
+.service-items > figure > p
+{
+    width: 130px; height: 130px;
+    border-radius: 50%; 
+    background-color: var(--color-point);
+    margin: 0 auto;
+    line-height: 130px;    
+}
+.service-items > figure > p > span
+{
+    width: 130px; height: 130px;
+    border-radius: 50%; 
+    background-color: var(--color-point);
+    margin: 0 auto;
+    font-size: 2rem;
+    color: #333;
+    line-height: 130px;    
+}
+.service-items > figure > p::after{}
+
+.service-items > figure > figcaption{}
+.service-items > figure > figcaption > b
+{
+    display: block;
+    font-size: 2rem;
+    color: #212529;
+    margin: 24px  0 8px;
+    text-transform: uppercase;
+}
+.service-items > figure > figcaption > p{}
+
+
+/* 텍스트 생략 -------------------------------------------------------------------------------------------------*/
+.t-skip1
+{
+    /*1줄 이상 제목 ...으로 가리기*/
+    white-space: nowrap;    /*긴 컨텐츠 강제로 한줄 만들기*/
+    overflow: hidden;       /*영역밖은 숨기기*/
+    text-overflow: ellipsis;    /*...처리*/
+}
+.t-skip2
+{   
+     /*3줄 이상 컨텐츠는 ...으로 가리기*/
+     display: -webkit-box;
+     -webkit-line-clamp: 3;
+     overflow: hidden;
+ 
+     /*세로정렬(flex예전에쓰던거)*/
+     -webkit-box-orient: vertical;
+}
+/* 배경색-------------------------------------------------------------------------------------------------------------------- */
+.bg-grey
+{
+    background-color: #f2f2f2;
+}
+.bg-dark
+{
+    background-color: #333333;
+    color: white;
+}
+.bg-dark h2
+{
+    color: inherit;
+}
+/* portfolio items 아이템----------------------------------------------------------------------------------------- */
+.portfolio-items
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px 0;
+
+}
+.portfolio-items > figure
+{
+    width: 32%;
+}
+
+.portfolio-items > figure > p{}
+.portfolio-items > figure > p > span > img{
+    width: 100%;
+}
+
+.portfolio-items > figure > figcaption
+{
+    text-align: center;
+    padding: 24px 0;
+    width: 100%;
+}
+.portfolio-items > figure > figcaption > b
+{
+    font-size: 1.5rem;
+    color: #333;
+    text-transform: uppercase;
+}
+.portfolio-items > figure > figcaption > p{}
+
+
+/* active */
+.portfolio-items{
+    perspective: 600px;
+}
+
+.portfolio-items > figure > p{
+    position: relative;
+    width: 414px;
+    height: 270px;
+
+    transform-style: preserve-3d; /*z축 사용:부모한테씀(flex처럼)*/
+
+    transition: 1s;
+   
+}
+.portfolio-items > figure > p > img{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+}
+.portfolio-items > figure > p > img:nth-child(1){
+}
+.portfolio-items > figure > p > img:nth-child(2){
+    transform: translateZ(-1px) rotateY(180deg);    /*2번째 이미지 뒤집기*/
+}
+
+
+.portfolio-items > figure:hover > p{
+    animation: ani-3d-card 3s infinite;
+}
+
+@keyframes ani-3d-card{
+    0%{}
+    100%{
+        transform: perspective(600px) rotateY(360deg);
+    }
+}
+
+/* contact us items 아이템----------------------------------------------------------------------------------------- */
+
+/* 정렬----------------------------------------------------------------------------------------------------------------- */
+.align-left{text-align: left;}
+.align-center{text-align: center;}
+.align-right{text-align: right;}
+
+/* 여백(마진)----------------------------------------------------------------------------------------------------------------- */
+.margin-top10{margin-top: 10px;}
+.margin-top20{margin-top: 20px;}
+.margin-top50{margin-top: 50px;}
+
+/* footer--------------------------------------------------------------------------------------------------------- */
+footer
+{   
+    padding: 60px 0;
+    
+}
+footer > div
+{
+    max-width: var(--pc-width);    /*헤더와 동일, 반응형*/
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+footer > div > address{}
+footer > div > p{}
+footer > div > p > img
+{
+    width: 100%;
+}
+footer > div > p:nth-of-type(2) > a
+{
+    padding: 0 10px;
+    text-decoration: underline;
+}
+
+
+}
